@@ -13,15 +13,15 @@ class Team extends Component {
       isNew: false,
     };
 
-    this.showNewMemberView = this.showNewMemberView.bind(this);
-    this.closeTeamEditView = this.closeTeamEditView.bind(this);
+    this.showTeamEditView = this.showTeamEditView.bind(this);
+    this.hideTeamEditView = this.hideTeamEditView.bind(this);
   }
 
-  showNewMemberView() {
+  showTeamEditView() {
     this.setState({ isEdit: true, isNew: true });
   }
 
-  closeTeamEditView() {
+  hideTeamEditView() {
     this.setState({ isEdit: false, isNew: false });
   }
 
@@ -29,7 +29,7 @@ class Team extends Component {
     let teamListView = (
       <div className="Team-list">
         <div className="action-area">
-          <div className="button" onClick={this.showNewMemberView}>+</div>
+          <div className="button" onClick={this.showTeamEditView}>+</div>
         </div>
         <Header title="Team members" subtitle="You have 3 team members"/>
         <List />
@@ -39,7 +39,7 @@ class Team extends Component {
     let teamEditView = (
       <div className="Team-edit">
         <div className="action-area">
-          <div className="button" onClick={this.closeTeamEditView}>x</div>
+          <div className="button" onClick={this.hideTeamEditView}>x</div>
         </div>
         <Header title="Add a team member" subtitle="Set email, location, and role"/>
         <div className="edit-area">
