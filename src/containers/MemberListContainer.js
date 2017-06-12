@@ -12,7 +12,7 @@ class MemberListContainer extends Component {
   render() {
     const subtitle = `You have ${this.props.items.length} team member${this.props.items.length === 1 ? '' : 's'}`;
     return (
-      <div className="MemberListContainer">ot
+      <div className="MemberListContainer">
         <div className="action-area">
           <div className="button" onClick={this.props.onMemberClick}>+</div>
         </div>
@@ -31,8 +31,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onItemClick: (item) => {
-      dispatch(showEditView(item));
+    onItemClick: (item, index) => {
+      dispatch(showEditView(item, index));
     },
   };
 };

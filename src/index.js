@@ -15,8 +15,8 @@ const store = configureStore({
     isEditing: false,
 
     items: [
-      { id: 1, firstName: "Jone", lastName: "Doe", phone: 97234263423, email: "jone@doe.xyz", isAdmin: false },
-      { id: 2, firstName: "Jane", lastName: "Doe", phone: 99373743333, email: "jane@doe.xyz", isAdmin: true },
+      { firstName: "Jone", lastName: "Doe", phone: 97234263423, email: "jone@doe.xyz", isAdmin: false },
+      { firstName: "Jane", lastName: "Doe", phone: 99373743333, email: "jane@doe.xyz", isAdmin: true },
     ],
     selectedItem: null,
   }

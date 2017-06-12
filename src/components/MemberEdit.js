@@ -5,12 +5,36 @@ class MemberEdit extends Component {
     return (
       <div className="MemberEdit">
         <form>
-          <input type="text" placeholder="First name" value={this.props.firstName}></input>
-          <input type="text" placeholder="Last name" value={this.props.lastName}></input>
-          <input type="text" placeholder="e-Mail" value={this.props.email}></input>
-          <input type="text" placeholder="Phone #" value={this.props.phone}></input>
-          <input type="radio" name="type" value="regular" checked={this.props.isAdmin} />Regular - Can't delete members
-          <input type="radio" name="type" value="admin" /> Admin
+          <input
+            type="text" placeholder="First name"
+            name="firstName"
+            value={this.props.item.firstName}
+            onChange={this.props.handlInputChange} />
+          <input
+            type="text" placeholder="Last name"
+            name="lastName"
+            value={this.props.item.lastName}
+            onChange={this.props.handlInputChange} />
+
+          <input
+            type="text" placeholder="e-Mail"
+            name="email"
+            value={this.props.item.email}
+            onChange={this.props.handlInputChange} />
+
+          <input
+            type="text" placeholder="Phone #"
+            name="phone"
+            value={this.props.item.phone}
+            onChange={this.props.handlInputChange} />
+
+          <input type="radio" value={false} name="isAdmin"
+            onChange={() => this.props.handleIsAdminToggle(false)} checked={!this.props.item.isAdmin} />Regular - Can't delete members
+          <input type="radio" value={true} name="isAdmin"
+            onChange={() => this.props.handleIsAdminToggle(true)} checked={this.props.item.isAdmin} /> Admin
+
+          <a onClick={(e) => { e.preventDefault(); this.props.onSaveClick(this.props.item, this.props.index); }}>Save</a>
+          <a onClick={(e) => { e.preventDefault(); this.props.onDeleteClick(this.props.index); }}>Delete</a>
         </form>
       </div>
     );

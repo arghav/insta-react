@@ -1,38 +1,41 @@
 import {
-  REQUEST_MEMBERS, RECEIVE_MEMBERS,
-  REQUEST_SAVE, RECEIVE_SAVE,
-  REQUEST_DELETE, RECEIVE_DELETE,
+  ADD_MEMBER, UPDATE_MEMBER, DELETE_MEMBER,
   SHOW_EDIT_VIEW, HIDE_EDIT_VIEW,
+  UPDATE_SELECTED_ITEM_VALUE,
 } from '../actions/members';
 
 export default (state = {
   // view context
-  isFetching: false,
-  isSaving: false,
-  isDeleting: false,
   isEditing: false,
 
   // data context
   items: [],
-  selectedItem: null, // If selectedItem is null and isEditing = true then consider it as a new item
+  selectedItem: {
+    index: null,
+    data: null,
+  }, // selecedItem is used to manage the item in edit context and for faster update/delete
 }, action) => {
   switch (action.type) {
-    case REQUEST_MEMBERS:
-      return Object.assign({}, state, { isFetching: true })
-    case RECEIVE_MEMBERS:
-      return Object.assign({}, state, { isFetching: false, items: action.members });
-    case REQUEST_SAVE:
-      return Object.assign({}, state, { isSaving: true })
-    case RECEIVE_SAVE:
-      return Object.assign({}, state, { isSaving: false, items: action.member });
-    case REQUEST_DELETE:
-      return Object.assign({}, state, { isFetching: true })
-    case RECEIVE_DELETE:
-      return Object.assign({}, state, { isFetching: false, items: action.members });
+    case ADD_MEMBER:
+      return Object.assign({}, state, { items: [...state.items, action.member]  });
+    case UPDATE_MEMBER:
+      const updateableItems = [...state.items];
+      updateableItems[action.index] = action.member;
+      return Object.assign({}, state, { items: updateableItems });
+    case DELETE_MEMBER:
+      console.log(state.items.splice(action.index, 1));
+      const deletableItems = [...state.items];
+      deletableItems.splice(action.index, 1);
+      return Object.assign({}, state, { items: [...deletableItems] });
     case SHOW_EDIT_VIEW:
-      return Object.assign({}, state, { isEditing: true, selectedItem: action.member })
+      return Object.assign({}, state, { isEditing: true, selectedItem: { index: action.index, data: action.member } })
     case HIDE_EDIT_VIEW:
-      return Object.assign({}, state, { isEditing: null, selectedItem: null })
+      return Object.assign({}, state, { isEditing: null, selectedItem: { index: null, data: null } });
+    case UPDATE_SELECTED_ITEM_VALUE:
+      const data = { ...state.selectedItem.data };
+      data[action.name] = action.value;
+
+      return Object.assign({}, state, { selectedItem: { index: state.selectedItem.index, data } });
     default:
       return state;
   }
