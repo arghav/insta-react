@@ -5,10 +5,15 @@ import ListItem from '../components/ListItem';
 
 class List extends Component {
   render() {
+    const listItems = this.props.items.map((item) =>
+      <ListItem key={item.id} firstName={item.firstName} lastName={item.lastName} phone={item.phone} email={item.email} isAdmin={item.isAdmin}
+        onClick={() => this.props.onItemClick(item)}
+      />
+    );
+
     return (
       <div className="List">
-        <ListItem name="Joe" phone="234234324" email="joe@gmail.com" isAdmin="true"  />
-        <ListItem name="Jane" phone="43778236423" email="Jane@gmail.com" isAdmin="false"  />
+        {listItems}
       </div>
     );
   }

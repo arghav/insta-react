@@ -4,8 +4,8 @@ import './ListItem.css';
 class ListItem extends Component {
   render() {
     return (
-      <div className="List-item">
-        <div className="name">{this.props.name}{ "true" === this.props.isAdmin && <span>(admin)</span>}</div>
+      <div className="ListItem" onClick={this.props.onClick}>
+        <div className="name">{this.props.firstName + ' ' + this.props.lastName}{ "true" === this.props.isAdmin && <span>(admin)</span>}</div>
         <div className="phone">{this.props.phone}</div>
         <div className="email">{this.props.email}</div>
       </div>
