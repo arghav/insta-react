@@ -34,6 +34,7 @@ const mapDispatchToProps = (dispatch) => {
     onItemClick: (item, index) => {
       dispatch(showEditView(item, index));
     },
+
     onAddMemberClick: () => {
       dispatch(showEditView({}, null));
     }

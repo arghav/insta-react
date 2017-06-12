@@ -9,13 +9,13 @@ export const UPDATE_SELECTED_ITEM_VALUE = 'UPDATE_SELECTED_ITEM_VALUE';
 
 export const addMember = (member) => ({
   type: ADD_MEMBER,
-  member
+  member,
 });
 
 export const updateMember = (member, index) => ({
   type: UPDATE_MEMBER,
   member,
-  index
+  index,
 });
 
 export const deleteMember = (index) => ({

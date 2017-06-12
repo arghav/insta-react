@@ -16,7 +16,9 @@ class MemberEditContainer extends Component {
           <div className="button" onClick={this.props.onCloseClick}>x</div>
         </div>
         <Header title="Add a team member" subtitle="Set email, location, and role" />
-        <MemberEdit item={this.props.item} index={this.props.index}
+        <MemberEdit
+          item={this.props.item}
+          index={this.props.index}
           handlInputChange={this.props.handlInputChange}
           handleIsAdminToggle={this.props.handleIsAdminToggle}
           onSaveClick={this.props.onSaveClick}
@@ -38,6 +40,7 @@ const mapDispatchToProps = (dispatch) => {
     onCloseClick: () => {
       dispatch(hideEditView());
     },
+
     handlInputChange: (event) => {
       const target = event.target;
       const name = target.name;
@@ -45,9 +48,11 @@ const mapDispatchToProps = (dispatch) => {
 
       dispatch(updateSelectedItemValue(name, value));
     },
+
     handleIsAdminToggle: (isAdmin) => {
       dispatch(updateSelectedItemValue('isAdmin', isAdmin));
     },
+
     onSaveClick: (item, index) => {
       if (index !== null) {
         // existing item
@@ -58,6 +63,7 @@ const mapDispatchToProps = (dispatch) => {
       }
       dispatch(hideEditView());
     },
+
     onDeleteClick: (index) => {
       dispatch(deleteMember(index));
       dispatch(hideEditView());
