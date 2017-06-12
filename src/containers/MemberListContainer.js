@@ -14,7 +14,7 @@ class MemberListContainer extends Component {
     return (
       <div className="MemberListContainer">
         <div className="action-area">
-          <div className="button" onClick={this.props.onMemberClick}>+</div>
+          <div className="button" onClick={this.props.onAddMemberClick}>+</div>
         </div>
         <Header title="Team members" subtitle={subtitle}/>
         <MemberList items={this.props.items} onItemClick={this.props.onItemClick}/>
@@ -34,6 +34,9 @@ const mapDispatchToProps = (dispatch) => {
     onItemClick: (item, index) => {
       dispatch(showEditView(item, index));
     },
+    onAddMemberClick: () => {
+      dispatch(showEditView({}, null));
+    }
   };
 };
 
