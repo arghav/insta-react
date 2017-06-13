@@ -23,7 +23,6 @@ export default (state = {
       updateableItems[action.index] = action.member;
       return Object.assign({}, state, { items: updateableItems });
     case DELETE_MEMBER:
-      console.log(state.items.splice(action.index, 1));
       const deletableItems = [...state.items];
       deletableItems.splice(action.index, 1);
       return Object.assign({}, state, { items: [...deletableItems] });

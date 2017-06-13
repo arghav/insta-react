@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 
+import './MemberEdit.css';
+
 class MemberEdit extends Component {
   render() {
     return (
       <div className="MemberEdit">
         <form>
+          <div className="header">Info</div>
           <input
             type="text" placeholder="First name"
             name="firstName"
@@ -28,13 +31,21 @@ class MemberEdit extends Component {
             value={this.props.item.phone}
             onChange={this.props.handlInputChange} />
 
-          <input type="radio" value={false} name="isAdmin"
-            onChange={() => this.props.handleIsAdminToggle(false)} checked={!this.props.item.isAdmin} />Regular - Can't delete members
-          <input type="radio" value={true} name="isAdmin"
-            onChange={() => this.props.handleIsAdminToggle(true)} checked={this.props.item.isAdmin} /> Admin
+          <div className="radio-option">
+            <input type="radio" value={false} name="isAdmin"
+              onChange={() => this.props.handleIsAdminToggle(false)} checked={!this.props.item.isAdmin} />
+              <label>Regular – Can't delete members</label>
+          </div>
+          <div className="radio-option">
+            <input type="radio" value={true} name="isAdmin"
+              onChange={() => this.props.handleIsAdminToggle(true)} checked={this.props.item.isAdmin} />
+              <label>Admin – Can delete members</label>
+          </div>
 
-          <a onClick={(e) => { e.preventDefault(); this.props.onSaveClick(this.props.item, this.props.index); }}>Save</a>
-          <a onClick={(e) => { e.preventDefault(); this.props.onDeleteClick(this.props.index); }}>Delete</a>
+          <div className="actions">
+            <a className="primary" onClick={(e) => { e.preventDefault(); this.props.onSaveClick(this.props.item, this.props.index); }}>Save</a>
+            <a className="secondary" onClick={(e) => { e.preventDefault(); this.props.onDeleteClick(this.props.index); }}>Delete</a>
+          </div>
         </form>
       </div>
     );

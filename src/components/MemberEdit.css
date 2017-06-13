@@ -1,0 +1,70 @@
+.MemberEdit {
+  width: 100%;
+}
+
+.MemberEdit form {
+  border-top: 1px solid #EEE;
+  display: block;
+  padding: 5px;
+}
+
+.MemberEdit form > .header {
+  padding-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.MemberEdit form > input[type="text"] {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  height: 35px;
+  font-size: 14px;
+  border-radius: 3px;
+  border: 1px solid #EEE;
+}
+
+.MemberEdit form > .radio-option {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.MemberEdit form > .radio-option > input[type="radio"] {
+  display: inline-block;
+}
+
+.MemberEdit form > .radio-option > label {
+  display: inline-block;
+}
+
+.MemberEdit form > .actions {
+  display: block;
+  width: 100%;
+  height: 40px;
+  vertical-align: middle;
+  margin-top: 10px;
+}
+
+.MemberEdit form > .actions a {
+  display: inline-block;
+  padding: 10px;
+  text-align: center;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: lighter;
+}
+
+.MemberEdit form > .actions a.primary {
+  background: #4192f7;
+  float: right;
+  color: #FFF;
+}
+
+.MemberEdit form > .actions a.secondary {
+  border: 1px solid #EEE;
+  float: left;
+  color: red;
+}

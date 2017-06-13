@@ -13,10 +13,10 @@ class MemberEditContainer extends Component {
     const headerTitle = this.props.index === null ? 'Add a team member' : 'Edit a team member' ;
     return (
       <div className="MemberEditContainer">
-        <div className="">
+        <div className="MemberEditContainer-action-area">
           <div className="button" onClick={this.props.onCloseClick}>x</div>
         </div>
-        <Header title={headerTitle} subtitle="Set email, location, and role" />
+        <Header title={headerTitle} subtitle="Set name, email, and role" />
         <MemberEdit
           item={this.props.item}
           index={this.props.index}
