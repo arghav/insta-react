@@ -10,12 +10,13 @@ import './MemberEditContainer.css';
 
 class MemberEditContainer extends Component {
   render() {
+    const headerTitle = this.props.index === null ? 'Add a team member' : 'Edit a team member' ;
     return (
       <div className="MemberEditContainer">
-        <div className="action-area">
+        <div className="">
           <div className="button" onClick={this.props.onCloseClick}>x</div>
         </div>
-        <Header title="Add a team member" subtitle="Set email, location, and role" />
+        <Header title={headerTitle} subtitle="Set email, location, and role" />
         <MemberEdit
           item={this.props.item}
           index={this.props.index}

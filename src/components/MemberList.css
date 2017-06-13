@@ -1,0 +1,42 @@
+.MemberList {
+}
+
+.MemberList-item {
+  padding: 10px;
+  font-size: 15px;
+  border-top: 1px solid #EEE;
+  cursor: pointer;
+  height: 100px;
+}
+
+.MemberList-item .avatar {
+  display: inline-block;
+  float: left;
+}
+
+.MemberList-item .avatar > img {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.MemberList-item .info {
+  display: inline-block;
+  float: left;
+  padding: 20px;
+}
+
+.MemberList-item .info > .name {
+  font-weight: bold;
+}
+
+.MemberList-item .info > .phone {
+  font-weight: lighter;
+  color: #9e9e9e;
+  padding-top: 5px;
+}
+
+.MemberList-item .info > .email {
+  font-weight: lighter;
+  color: #9e9e9e;
+  padding-top: 5px;
+}

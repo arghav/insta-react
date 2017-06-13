@@ -13,7 +13,7 @@ class MemberListContainer extends Component {
     const subtitle = `You have ${this.props.items.length} team member${this.props.items.length === 1 ? '' : 's'}`;
     return (
       <div className="MemberListContainer">
-        <div className="action-area">
+        <div className="MemberListContainer-action-area">
           <div className="button" onClick={this.props.onAddMemberClick}>+</div>
         </div>
         <Header title="Team members" subtitle={subtitle}/>
