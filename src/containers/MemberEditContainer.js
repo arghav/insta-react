@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { hideEditView, updateSelectedItemValue, addMember, updateMember, deleteMember } from '../actions/members';
+import { hideEditView, updateSelectedItemValue, addMember, updateMember, deleteMember, showEditError } from '../actions/members';
 
 import Header from '../components/Header';
 import MemberEdit from '../components/MemberEdit';
@@ -23,7 +23,8 @@ class MemberEditContainer extends Component {
           handlInputChange={this.props.handlInputChange}
           handleIsAdminToggle={this.props.handleIsAdminToggle}
           onSaveClick={this.props.onSaveClick}
-          onDeleteClick={this.props.onDeleteClick} />
+          onDeleteClick={this.props.onDeleteClick}
+          editError={this.props.editError} />
       </div>
     );
   }
@@ -33,6 +34,7 @@ const mapStateToProps = (state) => {
   return {
     item: state.members.selectedItem.data,
     index: state.members.selectedItem.index,
+    editError: state.members.editError,
   };
 };
 
@@ -55,14 +57,18 @@ const mapDispatchToProps = (dispatch) => {
     },
 
     onSaveClick: (item, index) => {
-      if (index !== null) {
-        // existing item
-        dispatch(updateMember(item, index));
+      if (item.firstName && item.lastName && item.email && item.phone && null !== item.isAdmin) {
+        if (index !== null) {
+          // existing item
+          dispatch(updateMember(item, index));
+        } else {
+          // new item
+          dispatch(addMember(item, index));
+        }
+        dispatch(hideEditView());
       } else {
-        // new item
-        dispatch(addMember(item, index));
+        dispatch(showEditError('Please fill all fields'));
       }
-      dispatch(hideEditView());
     },
 
     onDeleteClick: (index) => {

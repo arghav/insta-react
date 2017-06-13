@@ -68,3 +68,9 @@
   float: left;
   color: red;
 }
+
+.MemberEdit form > .error {
+  background: red;
+  color: #FFF;
+  padding: 5px;
+}

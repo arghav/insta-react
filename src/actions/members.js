@@ -7,6 +7,8 @@ export const HIDE_EDIT_VIEW = 'HIDE_EDIT_VIEW';
 
 export const UPDATE_SELECTED_ITEM_VALUE = 'UPDATE_SELECTED_ITEM_VALUE';
 
+export const SHOW_EDIT_ERROR = 'SHOW_EDIT_ERROR';
+
 export const addMember = (member) => ({
   type: ADD_MEMBER,
   member,
@@ -37,4 +39,10 @@ export const updateSelectedItemValue = (name, value) => ({
   type: UPDATE_SELECTED_ITEM_VALUE,
   name,
   value,
+});
+
+
+export const showEditError = (message) => ({
+  type: SHOW_EDIT_ERROR,
+  message
 });

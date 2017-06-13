@@ -42,6 +42,7 @@ class MemberEdit extends Component {
               <label>Admin – Can delete members</label>
           </div>
 
+          { this.props.editError && <div className="error">{this.props.editError}</div> }
           <div className="actions">
             <a className="primary" onClick={(e) => { e.preventDefault(); this.props.onSaveClick(this.props.item, this.props.index); }}>Save</a>
             <a className="secondary" onClick={(e) => { e.preventDefault(); this.props.onDeleteClick(this.props.index); }}>Delete</a>
