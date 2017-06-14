@@ -15,12 +15,8 @@ class TeamMembersContainer extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    isEditing: state.members.isEditing,
-  };
-};
-
 export default connect(
-  mapStateToProps,
+  (state) => ({
+    isEditing: state.members.isEditing,
+  }),
 )(TeamMembersContainer);
