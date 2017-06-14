@@ -32,14 +32,14 @@ class MemberEdit extends Component {
             onChange={this.props.handleInputChange} />
 
           <div className="radio-option">
-            <input type="radio" value={false} name="isAdmin"
+            <input type="radio" value={false} name="isAdmin" id="isAdminOptionNo"
               onChange={() => this.props.handleIsAdminToggle(false)} checked={!this.props.item.isAdmin} />
-              <label>Regular – Can't delete members</label>
+              <label htmlFor="isAdminOptionNo">Regular – Can't delete members</label>
           </div>
           <div className="radio-option">
-            <input type="radio" value={true} name="isAdmin"
+            <input type="radio" value={true} name="isAdmin" id="isAdminOptionYes"
               onChange={() => this.props.handleIsAdminToggle(true)} checked={this.props.item.isAdmin} />
-              <label>Admin – Can delete members</label>
+              <label htmlFor="isAdminOptionYes">Admin – Can delete members</label>
           </div>
 
           { this.props.editError && <div className="error">{this.props.editError}</div> }
