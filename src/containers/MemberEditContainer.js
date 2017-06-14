@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import * as MembersActionCreators from '../actions/members';
 
+import ActionBar from '../components/ActionBar';
 import Header from '../components/Header';
 import MemberEdit from '../components/MemberEdit';
 
@@ -18,9 +19,7 @@ class MemberEditContainer extends Component {
 
     return (
       <div className="MemberEditContainer">
-        <div className="MemberEditContainer-action-area">
-          <div className="button" onClick={boundMembersActionCreators.hideEditView}>x</div>
-        </div>
+        <ActionBar buttonText="x" actionHandler={boundMembersActionCreators.hideEditView}/>
         <Header title={headerTitle} subtitle="Set name, email, and role" />
         <MemberEdit
           item={item}

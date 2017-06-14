@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import * as MembersActionCreators from '../actions/members';
 
+import ActionBar from '../components/ActionBar';
 import Header from '../components/Header';
 import MemberList from '../components/MemberList';
 
@@ -32,9 +33,7 @@ class MemberListContainer extends Component {
 
     return (
       <div className="MemberListContainer">
-        <div className="MemberListContainer-action-area">
-          <div className="button" onClick={this.handleAddMember}>+</div>
-        </div>
+        <ActionBar buttonText="+" actionHandler={this.handleAddMember}/>
         <Header title="Team members" subtitle={subtitle}/>
         <MemberList items={this.props.items} {...boundMembersActionCreators}/>
       </div>

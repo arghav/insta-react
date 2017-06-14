@@ -1,0 +1,13 @@
+.ActionBar {
+  width: 100%;
+  display: block;
+  text-align: right;
+}
+
+.ActionBar .button {
+  font-size: 30px;
+  cursor: pointer;
+  color: #4192f7;
+  float: right;
+  width: 20px;
+}

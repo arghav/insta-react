@@ -9,8 +9,7 @@ class TeamMembersContainer extends Component {
   render() {
     return (
       <div className="TeamMembersContainer">
-        {this.props.isEditing && <MemberEditContainer/>}
-        {!this.props.isEditing && <MemberListContainer/>}
+        {this.props.isEditing ? <MemberEditContainer/> : <MemberListContainer/>}
       </div>
     );
   }
