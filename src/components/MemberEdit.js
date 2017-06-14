@@ -12,24 +12,24 @@ class MemberEdit extends Component {
             type="text" placeholder="First name"
             name="firstName"
             value={this.props.item.firstName}
-            onChange={this.props.handlInputChange} />
+            onChange={this.props.handleInputChange} />
           <input
             type="text" placeholder="Last name"
             name="lastName"
             value={this.props.item.lastName}
-            onChange={this.props.handlInputChange} />
+            onChange={this.props.handleInputChange} />
 
           <input
             type="text" placeholder="e-Mail"
             name="email"
             value={this.props.item.email}
-            onChange={this.props.handlInputChange} />
+            onChange={this.props.handleInputChange} />
 
           <input
             type="text" placeholder="Phone #"
             name="phone"
             value={this.props.item.phone}
-            onChange={this.props.handlInputChange} />
+            onChange={this.props.handleInputChange} />
 
           <div className="radio-option">
             <input type="radio" value={false} name="isAdmin"

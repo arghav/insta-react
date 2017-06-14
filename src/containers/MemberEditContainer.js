@@ -20,7 +20,7 @@ class MemberEditContainer extends Component {
         <MemberEdit
           item={this.props.item}
           index={this.props.index}
-          handlInputChange={this.props.handlInputChange}
+          handleInputChange={this.props.handleInputChange}
           handleIsAdminToggle={this.props.handleIsAdminToggle}
           onSaveClick={this.props.onSaveClick}
           onDeleteClick={this.props.onDeleteClick}
@@ -44,7 +44,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(hideEditView());
     },
 
-    handlInputChange: (event) => {
+    handleInputChange: (event) => {
       const target = event.target;
       const name = target.name;
       const value = target.value;
