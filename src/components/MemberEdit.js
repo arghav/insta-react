@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import './MemberEdit.css';
 
@@ -90,5 +91,22 @@ class MemberEdit extends Component {
     );
   }
 }
+
+MemberEdit.propTypes = {
+  index: PropTypes.number,
+  item: PropTypes.shape({
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+    isAdmin: PropTypes.bool.isRequired,
+  }).isRequired,
+  updateSelectedItemValue: PropTypes.func.isRequired,
+  addMember: PropTypes.func.isRequired,
+  updateMember: PropTypes.func.isRequired,
+  deleteMember: PropTypes.func.isRequired,
+  showEditError: PropTypes.func.isRequired,
+  hideEditView: PropTypes.func.isRequired,
+};
 
 export default MemberEdit;

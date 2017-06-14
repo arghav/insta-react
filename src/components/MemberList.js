@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import './MemberList.css';
 
-class Team extends Component {
+class MemberList extends Component {
   handleEditItem = (index) => {
     // Using index of the array for simplicity. Should not be used for production apps.
     const { items } = this.props;
@@ -30,4 +31,16 @@ class Team extends Component {
   }
 }
 
-export default Team;
+MemberList.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.shape({
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
+      isAdmin: PropTypes.bool.isRequired,
+    })
+  ).isRequired,
+  showEditView: PropTypes.func.isRequired,
+};
+
+export default MemberList;

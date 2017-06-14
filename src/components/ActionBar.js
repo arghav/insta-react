@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import './ActionBar.css';
 
 class ActionBar extends Component {
@@ -10,5 +12,10 @@ class ActionBar extends Component {
     );
   }
 }
+
+ActionBar.propTypes = {
+  buttonText: PropTypes.string.isRequired,
+  actionHandler: PropTypes.func.isRequired,
+};
 
 export default ActionBar;

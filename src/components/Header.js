@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import './Header.css';
 
 class Header extends Component {
@@ -10,6 +12,11 @@ class Header extends Component {
       </div>
     );
   }
+}
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
 }
 
 export default Header;
